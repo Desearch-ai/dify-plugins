@@ -1,0 +1,13 @@
+[project]
+name = "desearch"
+version = "0.0.1"
+description = "Desearch web search, AI search and X search tools for Dify"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dify_plugin>=0.10.2,<0.11",
+    "requests>=2.32,<3",
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<10"]

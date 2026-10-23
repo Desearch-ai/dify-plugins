@@ -1,0 +1,64 @@
+identity:
+  name: ai_search
+  author: Desearch
+  label:
+    en_US: AI Search
+description:
+  human:
+    en_US: Get an AI answer with links to its sources from web, X, Reddit, Hacker News, arXiv and Wikipedia.
+  llm: Runs a Desearch AI search across the chosen sources and returns a written answer plus the source links it used. Use it when a summarized answer with citations is needed.
+parameters:
+  - name: prompt
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: Prompt
+    human_description:
+      en_US: The question or topic to research.
+    llm_description: The question or topic to research.
+  - name: sources
+    type: string
+    required: false
+    default: web,twitter
+    form: form
+    label:
+      en_US: Sources
+    human_description:
+      en_US: "Comma-separated list from: web, twitter, reddit, hackernews, arxiv, wikipedia."
+  - name: date_filter
+    type: select
+    required: false
+    form: form
+    label:
+      en_US: Date range
+    human_description:
+      en_US: Only use sources from this period.
+    options:
+      - value: PAST_24_HOURS
+        label:
+          en_US: Past 24 hours
+      - value: PAST_2_DAYS
+        label:
+          en_US: Past 2 days
+      - value: PAST_WEEK
+        label:
+          en_US: Past week
+      - value: PAST_2_WEEKS
+        label:
+          en_US: Past 2 weeks
+      - value: PAST_MONTH
+        label:
+          en_US: Past month
+      - value: PAST_2_MONTHS
+        label:
+          en_US: Past 2 months
+      - value: PAST_YEAR
+        label:
+          en_US: Past year
+      - value: PAST_2_YEARS
+        label:
+          en_US: Past 2 years
+extra:
+  python:
+    source: tools/ai_search.py

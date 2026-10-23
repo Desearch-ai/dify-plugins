@@ -1,0 +1,32 @@
+identity:
+  name: web_search
+  author: Desearch
+  label:
+    en_US: Web Search
+description:
+  human:
+    en_US: Search the web and return titles, links and snippets.
+  llm: Searches the web with Desearch and returns a ranked list of results with title, link and snippet. Use it to find pages about a topic.
+parameters:
+  - name: query
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: Query
+    human_description:
+      en_US: What to search for.
+    llm_description: The search query.
+  - name: start
+    type: number
+    required: false
+    default: 0
+    min: 0
+    form: form
+    label:
+      en_US: Offset
+    human_description:
+      en_US: Number of results to skip, for paging (0, 10, 20 and so on).
+extra:
+  python:
+    source: tools/web_search.py

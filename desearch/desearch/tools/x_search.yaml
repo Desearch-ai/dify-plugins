@@ -1,0 +1,82 @@
+identity:
+  name: x_search
+  author: Desearch
+  label:
+    en_US: X Search
+description:
+  human:
+    en_US: Search X (Twitter) posts by keyword, with optional filters.
+  llm: Searches X (Twitter) posts with Desearch and returns matching posts with author, text, date, engagement counts and link. Supports filters for user, language and date range.
+parameters:
+  - name: query
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: Query
+    human_description:
+      en_US: Keywords to search for in X posts.
+    llm_description: Keywords to search for in X posts.
+  - name: count
+    type: number
+    required: false
+    default: 10
+    min: 1
+    max: 100
+    form: form
+    label:
+      en_US: Number of posts
+    human_description:
+      en_US: How many posts to return (1 to 100).
+  - name: sort
+    type: select
+    required: false
+    default: Top
+    form: form
+    label:
+      en_US: Sort
+    human_description:
+      en_US: Top posts or latest posts first.
+    options:
+      - value: Top
+        label:
+          en_US: Top
+      - value: Latest
+        label:
+          en_US: Latest
+  - name: user
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: User
+    human_description:
+      en_US: Only posts from this username, without the at sign.
+    llm_description: Optional X username to limit results to, without the at sign.
+  - name: lang
+    type: string
+    required: false
+    form: form
+    label:
+      en_US: Language
+    human_description:
+      en_US: Language code, for example en.
+  - name: start_date
+    type: string
+    required: false
+    form: form
+    label:
+      en_US: Start date
+    human_description:
+      en_US: Earliest post date, YYYY-MM-DD (UTC).
+  - name: end_date
+    type: string
+    required: false
+    form: form
+    label:
+      en_US: End date
+    human_description:
+      en_US: Latest post date, YYYY-MM-DD (UTC).
+extra:
+  python:
+    source: tools/x_search.py

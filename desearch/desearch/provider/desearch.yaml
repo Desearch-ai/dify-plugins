@@ -1,0 +1,28 @@
+identity:
+  author: Desearch
+  name: desearch
+  label:
+    en_US: Desearch
+  description:
+    en_US: AI search, X search and web search for AI agents. Bring your own Desearch API key.
+  icon: icon.png
+  tags:
+    - search
+credentials_for_provider:
+  api_key:
+    type: secret-input
+    required: true
+    label:
+      en_US: API Key
+    placeholder:
+      en_US: Paste your Desearch API key
+    help:
+      en_US: Create a key at https://console.desearch.ai/api-keys
+    url: https://console.desearch.ai/api-keys
+tools:
+  - tools/web_search.yaml
+  - tools/ai_search.yaml
+  - tools/x_search.yaml
+extra:
+  python:
+    source: provider/desearch.py

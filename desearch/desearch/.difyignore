@@ -1,0 +1,21 @@
+.venv/
+tests/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.env
+.env.*
+!.env.example
+*.difypkg
+.git/
+.DS_Store
+*.log
+.idea/
+.vscode/
+
+# not needed at runtime
+.difyignore
+.gitignore
+uv.lock
+.env.example
